@@ -31,6 +31,7 @@ int		snarffd = -1;
 int		mainpid;
 int		swapscrollbuttons = FALSE;
 char		*mtpt;
+char		*sessionfile;
 
 enum{
 	NSnarf = 1000	/* less than 1024, I/O buffer size */
@@ -71,6 +72,7 @@ threadmain(int argc, char *argv[])
 	ncol = -1;
 
 	loadfile = nil;
+	sessionfile = nil;
 	ARGBEGIN{
 	case 'D':
 		{extern int _threaddebuglevel;
@@ -146,6 +148,7 @@ threadmain(int argc, char *argv[])
 		maxtab = 4;
 	if(loadfile)
 		rowloadfonts(loadfile);
+		sessionfile = loadfile;
 	putenv("font", fontnames[0]);
 	snarffd = open("/dev/snarf", OREAD|OCEXEC);
 /*

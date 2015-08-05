@@ -13,6 +13,8 @@
 #include "dat.h"
 #include "fns.h"
 
+extern	char	*sessionfile;
+
 static Rune Lcolhdr[] = {
 	'N', 'e', 'w', 'c', 'o', 'l', ' ',
 	'K', 'i', 'l', 'l', ' ',
@@ -333,8 +335,12 @@ rowdump(Row *row, char *file)
 			warning(nil, "can't find file for dump: $home not defined\n");
 			goto Rescue;
 		}
-		sprint(buf, "%s/acme.dump", home);
-		file = buf;
+		if(sessionfile == nil){
+			sprint(buf, "%s/acme.dump", home);
+			file = buf;
+		}else{
+			file = sessionfile;
+		}
 	}
 	fd = create(file, OWRITE, 0600);
 	if(fd < 0){
