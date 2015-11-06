@@ -287,6 +287,20 @@ _initdisplay(void (*error)(Display*, char*), char *label)
 	disp->image = image;
 	disp->white = allocimage(disp, Rect(0, 0, 1, 1), GREY1, 1, DWhite);
 	disp->black = allocimage(disp, Rect(0, 0, 1, 1), GREY1, 1, DBlack);
+	disp->red = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DRed);
+	disp->palered = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPalered);
+	disp->green = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DGreen);
+	disp->palegreen = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPalegreen);
+	disp->blue = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DBlue);
+	disp->paleblue = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPaleblue);
+	disp->cyan = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DCyan);
+	disp->palecyan = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPalecyan);
+	disp->magenta = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DMagenta);
+	disp->palemagenta = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPalemagenta);
+	disp->yellow = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DYellow);
+	disp->paleyellow = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DPaleyellow);
+	disp->background = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DBackground);
+	disp->foreground = allocimage(disp, Rect(0, 0, 1, 1), RGB24, 1, DForeground);
 	if(disp->white == nil || disp->black == nil){
 		free(disp->white);
 		free(disp->black);

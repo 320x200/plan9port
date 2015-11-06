@@ -969,17 +969,17 @@ iconinit(void)
 	Image *tmp;
 
 	if(tagcols[BACK] == nil) {
-		/* Blue */
-		tagcols[BACK] = allocimagemix(display, DPalebluegreen, DWhite);
-		tagcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPalegreygreen);
-		tagcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPurpleblue);
-		tagcols[TEXT] = display->black;
+		/* Tag */
+		tagcols[BACK] = display->blue;
+		tagcols[HIGH] = display->palegreen; 
+		tagcols[BORD] = display->blue;
+		tagcols[TEXT] = display->paleblue;
 		tagcols[HTEXT] = display->black;
 	
-		/* Yellow */
-		textcols[BACK] = allocimagemix(display, DPaleyellow, DWhite);
-		textcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DDarkyellow);
-		textcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DYellowgreen);
+		/* Text */
+		textcols[BACK] = display->background;
+		textcols[HIGH] = display->paleyellow;
+		textcols[BORD] = display->paleblue;
 		textcols[TEXT] = display->black;
 		textcols[HTEXT] = display->black;
 	}
@@ -995,25 +995,25 @@ iconinit(void)
 	}
 
 	button = allocimage(display, r, screen->chan, 0, DNofill);
-	draw(button, r, tagcols[BACK], nil, r.min);
+	draw(button, r, display->background, nil, r.min);
 	r.max.x -= ButtonBorder;
-	border(button, r, ButtonBorder, tagcols[BORD], ZP);
+	border(button, r, ButtonBorder, display->blue, ZP);
 
 	r = button->r;
 	modbutton = allocimage(display, r, screen->chan, 0, DNofill);
-	draw(modbutton, r, tagcols[BACK], nil, r.min);
+	draw(modbutton, r, display->blue, nil, r.min);
 	r.max.x -= ButtonBorder;
-	border(modbutton, r, ButtonBorder, tagcols[BORD], ZP);
+	border(modbutton, r, ButtonBorder, display->blue, ZP);
 	r = insetrect(r, ButtonBorder);
-	tmp = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DMedblue);
+	tmp = display->yellow;
 	draw(modbutton, r, tmp, nil, ZP);
 	freeimage(tmp);
 
 	r = button->r;
-	colbutton = allocimage(display, r, screen->chan, 0, DPurpleblue);
+	colbutton = display->blue;
 
-	but2col = allocimage(display, r, screen->chan, 1, 0xAA0000FF);
-	but3col = allocimage(display, r, screen->chan, 1, 0x006600FF);
+	but2col = display->palered;
+	but3col = display->palegreen;
 }
 
 /*

@@ -28,35 +28,48 @@ struct Mux;
 extern	int	Rfmt(Fmt*);
 extern	int	Pfmt(Fmt*);
 
-#define 	DOpaque		0xFFFFFFFF
-#define 	DTransparent	0x00000000		/* only useful for allocimage memfillcolor */
-#define 	DBlack		0x000000FF
-#define 	DWhite		0xFFFFFFFF
-#define 	DRed		0xFF0000FF
-#define 	DGreen		0x00FF00FF
-#define 	DBlue		0x0000FFFF
-#define 	DCyan		0x00FFFFFF
-#define 	DMagenta		0xFF00FFFF
-#define 	DYellow		0xFFFF00FF
-#define 	DPaleyellow	0xFFFFAAFF
-#define 	DDarkyellow	0xEEEE9EFF
-#define 	DDarkgreen	0x448844FF
-#define 	DPalegreen	0xAAFFAAFF
-#define 	DMedgreen	0x88CC88FF
-#define 	DDarkblue	0x000055FF
-#define 	DPalebluegreen 0xAAFFFFFF
-#define 	DPaleblue		0x0000BBFF
-#define 	DBluegreen	0x008888FF
-#define 	DGreygreen	0x55AAAAFF
-#define 	DPalegreygreen	0x9EEEEEFF
-#define 	DYellowgreen	0x99994CFF
-#define 	DMedblue		0x000099FF
-#define 	DGreyblue	0x005DBBFF
-#define 	DPalegreyblue	0x4993DDFF
-#define 	DPurpleblue	0x8888CCFF
+/* 
+ * Plan 9 original colors merged with my .Xresources colors.
+ */
+#define		DOpaque			0xFFFFFFFF
+#define		DTransparent	0x00000000	/* only useful for allocimage memfillcolor */
+#define		DBackground		0xEEEEEEFF
+#define		DForeground		0x000000FF
+#define		DBlack			0x0D2030FF
+#define		DPaleblack		0x415D66FF
+#define		DWhite			0x71A6A1FF
+#define		DPalewhite		0xFFFFFFFF
+#define		DRed			0xE03C28FF
+#define		DPalered		0xFF82CEFF
+#define		DGreen			0x6AB417FF
+#define		DPalegreen		0xBEEB71FF
+#define		DBlue			0x0084FFFF
+#define		DPaleblue		0x98DCFFFF
+#define		DCyan			0x005280FF
+#define		DPalecyan		0x25E2CDFF
+#define		DMagenta		0xA328B3FF
+#define		DPalemagenta	0xD59CFCFF
+#define		DYellow			0xFFBB31FF
+#define		DPaleyellow		0xFFE737FF
 
-#define 	DNotacolor	0xFFFFFF00
-#define 	DNofill		DNotacolor
+/*
+ * Untouched/unused Plan 9 original colors.
+ */
+#define		DDarkyellow		0xEEEE9EFF
+#define		DDarkgreen		0x448844FF
+#define		DMedgreen		0x88CC88FF
+#define		DDarkblue		0x000055FF
+#define		DPalebluegreen	0xAAFFFFFF
+#define		DBluegreen		0x008888FF
+#define		DGreygreen		0x55AAAAFF
+#define		DPalegreygreen	0x9EEEEEFF
+#define		DYellowgreen	0x99994CFF
+#define		DMedblue		0x000099FF
+#define		DGreyblue		0x005DBBFF
+#define		DPalegreyblue	0x4993DDFF
+#define		DPurpleblue		0x8888CCFF
+#define		DNotacolor		0xFFFFFF00
+#define		DNofill			DNotacolor
 
 enum
 {
@@ -190,6 +203,20 @@ struct Display
 	Image		*image;
 	Image		*white;
 	Image		*black;
+	Image		*red;
+	Image		*palered;
+	Image		*green;
+	Image		*palegreen;
+	Image		*blue;
+	Image		*paleblue;
+	Image		*cyan;
+	Image		*palecyan;
+	Image		*magenta;
+	Image		*palemagenta;
+	Image		*yellow;
+	Image		*paleyellow;
+	Image		*background;
+	Image		*foreground;
 	Image		*opaque;
 	Image		*transparent;
 	uchar		*buf;

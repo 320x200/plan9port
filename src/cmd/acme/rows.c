@@ -41,7 +41,7 @@ rowinit(Row *row, Rectangle r)
 	t->col = nil;
 	r1.min.y = r1.max.y;
 	r1.max.y += Border;
-	draw(screen, r1, display->black, nil, ZP);
+	draw(screen, r1, display->paleblue, nil, ZP);
 	textinsert(t, 0, Lcolhdr, 29, TRUE);
 	textsetselect(t, t->file->b.nc, t->file->b.nc);
 }
@@ -80,7 +80,7 @@ rowadd(Row *row, Column *c, int x)
 		colresize(d, r1);
 		r1.min.x = r1.max.x;
 		r1.max.x = r1.min.x+Border;
-		draw(screen, r1, display->black, nil, ZP);
+		draw(screen, r1, display->paleblue, nil, ZP);
 		r.min.x = r1.max.x;
 	}
 	if(c == nil){
@@ -114,7 +114,7 @@ rowresize(Row *row, Rectangle r)
 	textresize(&row->tag, r1, TRUE);
 	r1.min.y = r1.max.y;
 	r1.max.y += Border;
-	draw(screen, r1, display->black, nil, ZP);
+	draw(screen, r1, display->paleblue, nil, ZP);
 	r.min.y = r1.max.y;
 	r1 = r;
 	r1.max.x = r1.min.x;
@@ -129,7 +129,7 @@ rowresize(Row *row, Rectangle r)
 		if(i > 0){
 			r2 = r1;
 			r2.max.x = r2.min.x+Border;
-			draw(screen, r2, display->black, nil, ZP);
+			draw(screen, r2, display->paleblue, nil, ZP);
 			r1.min.x = r2.max.x;
 		}
 		colresize(c, r1);
@@ -197,7 +197,7 @@ rowdragcol(Row *row, Column *c, int _0)
 	r.min.x = p.x;
 	r.max.x = r.min.x;
 	r.max.x += Border;
-	draw(screen, r, display->black, nil, ZP);
+	draw(screen, r, display->paleblue, nil, ZP);
 	r.min.x = r.max.x;
 	r.max.x = c->r.max.x;
 	colresize(c, r);
@@ -588,7 +588,7 @@ rowload(Row *row, char *file, int initing)
 			colresize(c2, r2);
 			r2.min.x = x-Border;
 			r2.max.x = x;
-			draw(screen, r2, display->black, nil, ZP);
+			draw(screen, r2, display->paleblue, nil, ZP);
 		}
 		if(i >= row->ncol)
 			rowadd(row, nil, x);
