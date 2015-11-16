@@ -12,14 +12,14 @@ extralibs="-lm"
 tag="${SYSNAME:-`uname`}-${OBJTYPE:-`uname -m`}"
 case "$tag" in
 *FreeBSD*)
-	ld=${CC9:-gcc}
+	ld=${CC9:-cc}
 	userpath=true
 	extralibs="$extralibs -lutil"
 	case "`uname -r`" in
 	5.2.*)
 		extralibs="$extralibs -lkse"
 		;;
-	[5-9].*)
+	*)
 		extralibs="$extralibs -lpthread"
 		;;
 	esac
