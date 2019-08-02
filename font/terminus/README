@@ -1,0 +1,15 @@
+Here is a Terminus variant created with the bdf2subf software bundled
+in this very p9p distro.
+
+The source is Terminus 4.47, check README.orig and CHANGES.orig for more
+information. I only packaged the variant and size I use personally, feel free
+to make your own!
+
+For instance, get the latest Terminus source tarball, and using the 
+BDF file you want to use as source, you can:
+
+bdf2subf -f ter-u14n.bdf > ~/tmp/ter-u14b.font
+bdf2subf ter-u14n.bdf
+
+Copy all the resulting files somewhere and point to the font file from
+your fav Plan 9 application.
