@@ -494,9 +494,9 @@ flushtyping(int clearesc)
 #define	PAGEUP	Kpgup
 #define	RIGHTARROW	Kright
 #define	SCROLLKEY	Kdown
-#define	CUT	(Kcmd+'x')
-#define	COPY	(Kcmd+'c')
-#define	PASTE	(Kcmd+'v')
+#define	CUT	0x18
+#define	COPY	0x03
+#define	PASTE	0x16
 
 int
 nontypingkey(int c)

@@ -684,17 +684,17 @@ wkeyctl(Window *w, Rune r)
 		waddraw(w, &r, 1);
 		return;
 	}
-	if(r == Kcmd+'x'){
+	if(r == 0x18){
 		wsnarf(w);
 		wcut(w);
 		wscrdraw(w);
 		return;
 	}
-	if(r == Kcmd+'c'){
+	if(r == 0x03){
 		wsnarf(w);
 		return;
 	}
-	if(r == Kcmd+'v'){
+	if(r == 0x16){
 		riogetsnarf();
 		wpaste(w);
 		wscrdraw(w);
