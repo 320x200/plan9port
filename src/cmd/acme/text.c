@@ -771,7 +771,11 @@ texttype(Text *t, Rune r)
 	case 0x19:	/* %Y: redo */
 	 	typecommit(t);
 		undo(t, nil, nil, FALSE, 0, nil, 0);
-		return;		
+		return;
+	case 0x13:	/* %S: save */
+		typecommit(t);
+		put(t, t, nil, TRUE, FALSE, nil, 0);
+		return;
 
 	Tagdown:
 		/* expand tag to show all text */
