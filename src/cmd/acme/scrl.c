@@ -70,10 +70,10 @@ textscrdraw(Text *t)
 	r2 = scrpos(r1, t->org, t->org+t->fr.nchars, t->file->b.nc);
 	if(!eqrect(r2, t->lastsr)){
 		t->lastsr = r2;
-		draw(b, r1, t->fr.cols[BORD], nil, ZP);
-		draw(b, r2, t->fr.cols[BACK], nil, ZP);
-		r2.min.x = r2.max.x-1;
+		draw(b, r1, t->fr.cols[BACK], nil, ZP);
 		draw(b, r2, t->fr.cols[BORD], nil, ZP);
+		r2.min.x = r2.max.x-1;
+		draw(b, r2, t->fr.cols[BACK], nil, ZP);
 		draw(t->fr.b, r, b, nil, Pt(0, r1.min.y));
 /*flushimage(display, 1); // BUG? */
 	}
