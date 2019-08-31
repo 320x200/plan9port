@@ -564,12 +564,12 @@ runxevent(XEvent *xev)
 		case XK_Alt_R:
 		case XK_Meta_R:	/* Shift Alt on PCs */
 		case XK_Multi_key:
-			if(xev->type == KeyPress)
+			if(xev->type == KeyPress) {
 				altdown = 1;
-			else if(altdown) {
+                sendalt();
+                }
+			else if(altdown)
 				altdown = 0;
-				sendalt();
-			}
 			break;
 		}
 
