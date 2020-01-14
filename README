@@ -1,13 +1,16 @@
 This is a fork of plan9port (see README.md for original blurb) that is usually more or less in sync with upstream and has several additions, mostly for acme:
 
 * added bdf2subf utility to p9p
-* fixed installation to work with FreeBSD 12
 * added a variant of terminus 4.47
 * Dump writes to -l path, if specified, else to ~/acme.dump (JillTyrell)
 * replaced macOS specific copy/cut/paste/undo/redo shorcut with more portable control keycode (you know... Ctrl-C, Ctrl-X, etc)
 * added Ctrl-S to save (Put) currently selected buffer
-* allow hinting and disable autohint only (Xiao-Yong Jin)
 * up and down arrows do not jump through the buffer anymore but moves the cursors from one line to another
 * Toggable tab expansion support via Tabexpand command (Petter Rodhelind)
 * themeable acme colors via cmd/acme/config.h
 * compose key behaviour under x11 is fixed
+
+Changes that ended up upstream:
+
+* fixed installation to work with FreeBSD 12
+* allow hinting and disable autohint only (Xiao-Yong Jin)
